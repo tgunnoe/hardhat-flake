@@ -1,7 +1,5 @@
 {
-  inputs.nixpkgs.url = "github:nixos/nixpkgs/nixos-21.11";
-  inputs.dream2nix.url = "github:tgunnoe/dream2nix/workspace-name-fix";
-  inputs.dream2nix.inputs.nixpkgs.follows = "nixpkgs";
+  inputs.dream2nix.url = "github:nix-community/dream2nix";
   inputs.src.url = "github:nomicfoundation/hardhat";
   inputs.src.flake = false;
   outputs = { self, nixpkgs, dream2nix, src }@inputs:
@@ -10,7 +8,6 @@
         systems = [ "x86_64-linux" "x86_64-darwin" "aarch64-linux" "aarch64-darwin" ];
         config.projectRoot = ./. ;
       };
-      lib = nixpkgs.lib;
     in dream2nix.makeFlakeOutputs {
       source = src;
       pname = "hardhat-monorepo";
