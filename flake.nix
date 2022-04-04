@@ -16,6 +16,11 @@
       pname = "hardhat-monorepo";
       packageOverrides = {
         hardhat = {
+          remove-local-check = {
+            patches = [
+              "${./patches}/remove-local-check.patch"
+            ];
+          };
           correct-tsconfig-path = {
             postPatch = ''
               substituteInPlace ./tsconfig.json --replace \

@@ -1,0 +1,15 @@
+diff --git a/src/internal/cli/cli.ts b/src/internal/cli/cli.ts
+index 74bdcaea..f3cbc6ca 100755
+--- a/src/internal/cli/cli.ts
++++ b/src/internal/cli/cli.ts
+@@ -124,10 +124,6 @@ async function main() {
+       return;
+     }
+ 
+-    if (!isHardhatInstalledLocallyOrLinked()) {
+-      throw new HardhatError(ERRORS.GENERAL.NON_LOCAL_INSTALLATION);
+-    }
+-
+     if (willRunWithTypescript(hardhatArguments.config)) {
+       loadTsNode(hardhatArguments.tsconfig);
+     }
